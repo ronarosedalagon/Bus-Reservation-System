@@ -1,0 +1,55 @@
+{% extends 'myapp/Sidebar.html' %}
+{% block page_title %}
+    Admin
+{% endblock page_title %}
+{% block main_content %}
+<section class="content">
+<nav class="col-md-2 d-inline-block bg-dark sidebar">
+         <div class="sidebar-sticky" style="height: 682px;">
+            <ul class="nav flex-column nav-pills " style="margin: 8% 0 0 0;">
+                <h6 style="color: gray">Welcome,  <span style="color:yellow;"> {{ user.last_name }}, {{ user.first_name }} </span></h6>
+              <li class="nav-item">
+                <a class="nav-link" href="/driver">
+                <i class="fa fa-home" aria-hidden="true" style="margin-right: 10px;"></i>
+                   Dashboard
+                </a>
+              </li>
+                <li class="nav-item">
+                <a class="nav-link active" href='/driver/reservationlist'>
+                <i class="fa fa-bus" aria-hidden="true" style="margin-right: 10px;"></i>
+                    Update Schedule
+                </a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href='/driver/reservationlist'>
+                <i class="fa fa-bus" aria-hidden="true" style="margin-right: 10px;"></i>
+                    List of Reservations
+                </a>
+              </li>
+            </ul>
+          </div>
+        </nav>
+</section>
+<div class="container"  style="width:30%; display:float; margin: -41% 0 0 25%;">
+                <a href='/driver/manageschedule' style="margin:0 0 0 85%;"><input type="submit" value="Close" class="btn btn-Danger"></a>
+            <h5 style="margin:5% 0 -4% 0;"> Update Schedule</h5>
+                <form action="" method=POST>
+                    {% csrf_token %}
+
+                <div class="card-body">
+
+                </div>
+                    {{ form.as_p }}
+                    <input type="submit" value="Submit" class="btn btn-secondary">
+                    {% if messages %}
+                    <ul class="messages">
+                    {% for message in messages %}
+                            <li {% if message.tags %} class="{{ message.tags }}"{% endif %}>{{ message }}</li>
+                            {% endfor %}
+                    </ul>
+                    {% endif %}
+                </form>
+        </div>
+</div>
+</div>
+{% endblock main_content %}

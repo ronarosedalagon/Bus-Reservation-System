@@ -1,0 +1,114 @@
+{% extends 'myapp/Sidebar.html' %}
+{% block page_title %}
+    Admin
+{% endblock page_title %}
+{% block main_content %}
+<section class="content">
+<nav class="col-md-2 d-inline-block bg-dark sidebar">
+          <div class="sidebar-sticky" style="height: 671px;">
+            <ul class="nav flex-column nav-pills " style="margin: 8% 0 0 0;">
+                <h6 style="color: gray">Welcome,  <span style="color:yellow;"> {{ user.last_name }}, {{ user.first_name }} </span></h6>
+              <li class="nav-item">
+                <a class="nav-link active" href="/admin">
+                <i class="fa fa-home" aria-hidden="true" style="margin-right: 10px;"></i>
+                   Dashboard
+                </a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href='addbus'>
+                <i class="fa fa-bus" aria-hidden="true" style="margin-right: 10px;"></i>
+                    Add Bus
+                </a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="managebus">
+                <i class="fa fa-folder-open" aria-hidden="true" style="margin-right: 3px;"></i>
+                  Manage Bus
+                </a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href='addschedule'>
+                <i class="fa fa-calendar-plus-o" aria-hidden="true" style="margin-right: 7px;"></i>
+                    Add Schedule
+                </a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="manageschedule">
+                <i class="fa fa-calendar-check-o" aria-hidden="true" style="margin-right: 8px;"></i>
+                  Manage Schedule
+                </a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="assigndriver">
+                <i class="fa fa-id-card-o" aria-hidden="true" style="margin-right: 5px;"></i>
+                  Assign Driver
+                </a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="managedriver">
+                <i class="fa fa-pencil-square-o" aria-hidden="true" style="margin-right: 7px;"></i>
+                  Manage Driver
+                </a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="addstudent">
+                <i class="fa fa-user" aria-hidden="true" style="margin-right: 11px;"></i>
+                  Add Student
+                </a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="managestudent">
+                <i class="fa fa-folder-open" aria-hidden="true" style="margin-right: 3px;"></i>
+                  Manage Student
+                </a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="managereservation">
+                <i class="fa fa-file-text-o" aria-hidden="true" style="margin-right: 6px;"></i>
+                  Manage Reservation
+                </a>
+              </li>
+            </ul>
+          </div>
+        </nav>
+</section>
+<div class="elementor-column-wrap elementor-element-populated" style="display:float; margin: -40% 0 0 25%;">
+      <div class="elementor-widget-wrap" >
+        <div class="elementor-element elementor-element-67e3fb6b elementor-position-right elementor-vertical-align-middle elementor-view-default elementor-mobile-position-top elementor-widget elementor-widget-icon-box" data-id="67e3fb6b" data-element_type="widget" data-widget_type="icon-box.default">
+              <div class="elementor-icon-box-content w-50 bg-success text-white " style="padding:15px;">
+				<h3 class="elementor-icon-box-title ">
+					<span> School Vision </span>
+				</h3>
+                <p class="elementor-icon-box-description">
+						A leading institution of excellence in delivering education and training in the Philippines and beyond.					</p>
+              </div>
+        </div>
+      </div>
+</div>
+<div class="elementor-column-wrap elementor-element-populated" style="display:float; margin: 3% 0 0 25%;">
+      <div class="elementor-widget-wrap" >
+        <div class="elementor-element elementor-element-67e3fb6b elementor-position-right elementor-vertical-align-middle elementor-view-default elementor-mobile-position-top elementor-widget elementor-widget-icon-box" data-id="67e3fb6b" data-element_type="widget" data-widget_type="icon-box.default">
+              <div class="elementor-icon-box-content w-50 bg-danger text-white " style="padding:15px;">
+				<h3 class="elementor-icon-box-title ">
+					<span> School Motto </span>
+				</h3>
+                <p class="elementor-icon-box-description">
+                    Eruditio, gubernatio, et humanitas. Knowledge, leadership, and humanity </p>
+              </div>
+        </div>
+      </div>
+</div>
+<div class="elementor-column-wrap elementor-element-populated" style="display:float; margin: 3% 0 0 25%;">
+      <div class="elementor-widget-wrap" >
+        <div class="elementor-element elementor-element-67e3fb6b elementor-position-right elementor-vertical-align-middle elementor-view-default elementor-mobile-position-top elementor-widget elementor-widget-icon-box" data-id="67e3fb6b" data-element_type="widget" data-widget_type="icon-box.default">
+              <div class="elementor-icon-box-content w-50 bg-primary text-white " style="padding:15px;">
+				<h3 class="elementor-icon-box-title ">
+					<span> Mission </span>
+				</h3>
+                <p class="elementor-icon-box-description">
+						Deeply committed to promoting knowledge, humaneness and leadership </p>
+              </div>
+        </div>
+      </div>
+</div>
+{% endblock main_content %}

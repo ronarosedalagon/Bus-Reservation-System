@@ -1,0 +1,109 @@
+{% extends 'myapp/Sidebar.html' %}
+{% block page_title %}
+    Admin
+{% endblock page_title %}
+{% block main_content %}
+<section class="content">
+<nav class="col-md-2 d-inline-block bg-dark sidebar">
+          <div class="sidebar-sticky" style="height: 671px;">
+            <ul class="nav flex-column nav-pills " style="margin: 8% 0 0 0;">
+                <h6 style="color: gray">Welcome, <span style="color:yellow;"> {{ user.last_name }}, {{ user.first_name }}</h6>
+              <li class="nav-item">
+                <a class="nav-link" href="/cecadmin">
+                <i class="fa fa-home" aria-hidden="true" style="margin-right: 10px;"></i>
+                   Dashboard
+                </a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href='addbus'>
+                <i class="fa fa-bus" aria-hidden="true" style="margin-right: 10px;"></i>
+                    Add Bus
+                </a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="managebus">
+                <i class="fa fa-folder-open" aria-hidden="true" style="margin-right: 3px;"></i>
+                  Manage Bus
+                </a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href='addschedule'>
+                <i class="fa fa-calendar-check-o" aria-hidden="true" style="margin-right: 7px;"></i>
+                    Add Schedule
+                </a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="manageschedule">
+                <i class="fa fa-calendar-check-o" aria-hidden="true" style="margin-right: 8px;"></i>
+                  Manage Schedule
+                </a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="assigndriver">
+                <i class="fa fa-id-card-o" aria-hidden="true" style="margin-right: 5px;"></i>
+                  Assign Driver
+                </a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="managedriver">
+                <i class="fa fa-pencil-square-o" aria-hidden="true" style="margin-right: 7px;"></i>
+                  Manage Driver
+                </a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="addstudent">
+                <i class="fa fa-user" aria-hidden="true" style="margin-right: 11px;"></i>
+                  Add Student
+                </a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link active" href="managestudent">
+                <i class="fa fa-folder-open" aria-hidden="true" style="margin-right: 3px;"></i>
+                  Manage Student
+                </a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="managereservation">
+                <i class="fa fa-file-text-o" aria-hidden="true" style="margin-right: 6px;"></i>
+                  Manage Reservation
+                </a>
+              </li>
+            </ul>
+          </div>
+        </nav>
+</section>
+<div class="container"  style="width:80%; display:float; margin: -42% 0 0 20%;">
+            <div class="w-100 p-3" style="background-color: #eee;">
+                <table class="table table-striped">
+                  <h4 class="text-info">Manage Student</h4>
+                  <thead>
+                    <tr>
+                      <th scope="col">Student Username</th>
+                      <th scope="col">First Name</th>
+                      <th scope="col">Last Name</th>
+                      <th scope="col">Student Email</th>
+                      <th scope="col">Action</th>
+                    </tr>
+                  </thead>
+                  <tbody >
+                  {% for User in User %}
+                    <tr style="width:500px;">
+                      <th scope="row" style="color:#016228">{{ User.username }} </th>
+                      <td style="color:#016228">{{ User.first_name }} </td>
+                      <td style="color:#016228">{{ User.last_name }}</td>
+                      <td style="color:#016228">{{ User.email }} </td>
+                      <td>
+                        <a href="{% url 'update-student' User.username%}"><input type="submit" value="Update" class="btn btn-Warning"></a>
+                        <a href="{% url 'delete-student' User.username%}"><input type="submit" value="Delete" class="btn btn-Danger"></a>
+                      </td>
+                    </tr>
+                  {% endfor %}
+                  </tbody>
+
+                </table>
+                </center>
+            </div>
+        </div>
+</div>
+</div>
+{% endblock main_content %}

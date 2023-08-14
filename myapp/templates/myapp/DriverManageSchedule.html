@@ -1,0 +1,68 @@
+{% extends 'myapp/Sidebar.html' %}
+{% block page_title %}
+    Admin
+{% endblock page_title %}
+{% block main_content %}
+<section class="content">
+<nav class="col-md-2 d-inline-block bg-dark sidebar">
+          <div class="sidebar-sticky" style="height: 671px;">
+            <ul class="nav flex-column nav-pills " style="margin: 8% 0 0 0;">
+                <h6 style="color: gray">Welcome,  <span style="color:yellow;"> {{ user.last_name }}, {{ user.first_name }} </span></h6>
+              <li class="nav-item">
+                <a class="nav-link" href="/driver">
+                <i class="fa fa-home" aria-hidden="true" style="margin-right: 10px;"></i>
+                   Dashboard
+                </a>
+              </li>
+                <li class="nav-item">
+                <a class="nav-link active" href='/driver/manageschedule'>
+                <i class="fa fa-bus" aria-hidden="true" style="margin-right: 10px;"></i>
+                    Update Schedule
+                </a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href='/driver/reservationlist'>
+                <i class="fa fa-bus" aria-hidden="true" style="margin-right: 10px;"></i>
+                    List of Reservations
+                </a>
+              </li>
+            </ul>
+          </div>
+        </nav>
+</section>
+        <div class="container"  style="width:80%; display:float; margin: -42% 0 0 20%;">
+            <div class="w-100 p-3" style="background-color: #eee;">
+                <table class="table table-striped">
+                  <h4 class="text-info">Update Schedule</h4>
+                  <thead>
+                    <tr>
+                      <th scope="col">Schedule ID</th>
+                      <th scope="col">Bus ID</th>
+                      <th scope="col">Schedule Departure</th>
+                      <th scope="col">Schedule Arrival</th>
+                      <th scope="col">Schedule Seat Vacancies</th>
+                      <th scope="col">Action</th>
+                    </tr>
+                  </thead>
+                  <tbody >
+                  {% for schedule in schedule %}
+                    <tr style="width:500px;">
+                      <th scope="row" style="color:#016228">{{ schedule.scheduleID }} </th>
+                      <td style="color:#016228">{{ schedule.busID }} </td>
+                      <td style="color:#016228">{{ schedule.scheduleDeparture }}</td>
+                      <td style="color:#016228">{{ schedule.scheduleArrival }} </td>
+                      <td style="color:#016228">{{ schedule.scheduleSeatVacancies }} </td>
+                      <td>
+                        <a href="{% url 'driver-update-schedule' schedule.scheduleID%}"><input type="submit" value="Update" class="btn btn-Warning"></a>
+                      </td>
+                    </tr>
+                  {% endfor %}
+                  </tbody>
+
+                </table>
+                </center>
+            </div>
+        </div>
+</div>
+</div>
+{% endblock main_content %}

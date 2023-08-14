@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.4.1/dist/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+    <meta charset="UTF-8">
+    <title>Reservation</title>
+</head>
+
+<style>
+    .login_btn {
+			width: 8%;
+			height: 40px;
+			margin: -5% 0 0 0;
+			background: #33ccff !important;
+			color: white !important;
+		}
+		.login_btn:focus {
+			box-shadow: none !important;
+			outline: 0px !important;
+		}
+		.login_container {
+			padding: 0 5rem;
+		}
+		.login_btns {
+			width: 8%;
+			height: 40px;
+			margin: -5% 0 0 0;
+			background: #111f9c !important;
+			color: white !important;
+		}
+        #messages{
+                background-color: #D1B305;
+                color: #fff;
+                padding: 10px;
+                margin-top: 10px;
+        }
+</style>
+<body>
+<div class="bg-info text-white" style="margin-bottom:4%;">
+    <div class="align-baseline" style="padding: 1% 0 0 5%;">
+        <h6 style="margin: 0 0 -.1% 0;"> Welcome <span style="color:blue;"> {{ user.last_name }}, {{ user.first_name }} </span></h6>
+         <span id="datetime"></span>
+    </div>
+
+    <div class="d-flex justify-content-end mt-4 login_container">
+        <a class="btn login_btn" href='/logout'> Logout</a>
+    </div>
+</div>
+
+<center>
+    <div class="w-75 p-3" style="background-color: #eee;">
+        <h3 style="margin-left:-80%">List of Schedules</h3>
+        <table class="table table-striped">
+          <thead>
+            <tr>
+              <th scope="col">Schedule ID</th>
+              <th scope="col">Bus ID</th>
+              <th scope="col">Schedule Arrival</th>
+              <th scope="col">Schedule Departure</th>
+              <th scope="col">Seat Vacancies Count</th>
+              <th scope="col">Action</th>
+            </tr>
+          </thead>
+          <tbody >
+          {% for schedule in schedule %}
+            <tr style="width:500px;">
+              <th scope="row" style="color:#016228">{{ schedule.scheduleID }} </th>
+              <td style="color:#016228">{{ schedule.busID }} </td>
+              <td style="color:#016228">{{ schedule.scheduleArrival }}</td>
+              <td style="color:#016228">{{ schedule.scheduleDeparture }} </td>
+              <td style="color:#016228">{{ schedule.scheduleSeatVacancies }} </td>
+              <td>
+                  <a class="btn login_btns" style="width:80%;" href="{% url 'reservationformpannel-page' schedule.scheduleID %} "> Reserved</a>
+              </td>
+            </tr>
+          {% endfor %}
+          </tbody>
+
+        </table>
+        <div>
+            {% for message in messages %}
+					<p id="messages">{{message}}</p>
+            {% endfor %}
+        </div>
+        </center>
+    </div>
+
+
+<script>
+var dt = new Date();
+document.getElementById("datetime").innerHTML = dt.toLocaleString();
+</script>
+
+</body>
+</html>

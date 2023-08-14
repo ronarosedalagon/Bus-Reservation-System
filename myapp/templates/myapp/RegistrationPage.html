@@ -1,0 +1,166 @@
+{% extends 'myapp/Sidebar.html' %}
+{% block page_title %}
+    Admin
+{% endblock page_title %}
+{% block main_content %}
+
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+
+
+	<style>
+		body,
+		html {
+			margin: 0;
+			padding: 0;
+			height: 100%;
+			background: white !important;
+		}
+		.user_card {
+			width: 350px;
+			margin-top: auto;
+			margin-bottom: auto;
+			background: #D3D3D3;
+			position: relative;
+			display: flex;
+			justify-content: center;
+			flex-direction: column;
+			padding: 10px;
+			box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+			-webkit-box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+			-moz-box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+			border-radius: 5px;
+
+		}
+
+		.form_container {
+			margin-top: 20px;
+		}
+
+		#form-title{
+			color: #3d8578;
+			margin-top:5%;
+		}
+		.login_btn {
+			width: 50%;
+			background: #33ccff !important;
+			color: white !important;
+		}
+		.login_btn:focus {
+			box-shadow: none !important;
+			outline: 0px !important;
+		}
+		.login_container {
+			padding: 0 2rem;
+		}
+		.input-group-text {
+			background: #f7ba5b !important;
+			color: white !important;
+			border: 0 !important;
+			border-radius: 0.25rem 0 0 0.25rem !important;
+			width: 180px;
+			margin: 0 5% 0 0;
+		}
+		.input_user,
+		.input_pass:focus {
+			box-shadow: none !important;
+			outline: 0px !important;
+		}
+
+	</style>
+
+<section class="content">
+<nav class="col-md-2 d-inline-block bg-dark sidebar">
+          <div class="sidebar-sticky" style="height: 682px;">
+            <ul class="nav flex-column nav-pills " style="margin: 8% 0 0 0;">
+                <h6 style="color: gray">Welcome, Admin</h6>
+              <li class="nav-item">
+                <a class="nav-link" href="/cecadmin">
+                <i class="fa fa-home" aria-hidden="true" style="margin-right: 10px;"></i>
+                   Dashboard
+                </a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href='addbus'>
+                <i class="fa fa-bus" aria-hidden="true" style="margin-right: 10px;"></i>
+                    Add Bus
+                </a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href='addschedule'>
+                <i class="fa fa-calendar-check-o" aria-hidden="true" style="margin-right: 7px;"></i>
+                    Add Schedule
+                </a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="assigndriver">
+                <i class="fa fa-id-card-o" aria-hidden="true" style="margin-right: 5px;"></i>
+                  Assign Driver
+                </a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link active" href="addstudent">
+                <i class="fa fa-user" aria-hidden="true" style="margin-right: 11px;"></i>
+                  Add Student
+                </a>
+              </li>
+            </ul>
+          </div>
+        </nav>
+</section>
+<div class="container"  style="width:50%; display:float; margin: -41% 0 0 25%;">
+            <h5 style="margin:8% 0 2% 0; color: black;"> Add Account</h5>
+
+                <form method="POST" action="">
+						{% csrf_token %}
+						<div class="input-group mb-2">
+							<div class="input-group-append">
+								<span class="input-group-text">Username: </span>
+							</div>
+							{{form.username}}
+						</div>
+						<div class="input-group mb-2">
+							<div class="input-group-append">
+								<span class="input-group-text">Email: </i></span>
+							</div>
+							{{form.email}}
+						</div>
+						<div class="input-group mb-2">
+							<div class="input-group-append">
+								<span class="input-group-text">Email: </i></span>
+							</div>
+							{{form.firstname}}
+						</div>
+						<div class="input-group mb-2">
+							<div class="input-group-append">
+								<span class="input-group-text">Email: </i></span>
+							</div>
+							{{form.lastname}}
+						</div>
+						<div class="input-group mb-2" >
+							<div class="input-group-append">
+								<div class="input-group-text">Password:</div> <br>
+							</div>
+							{{form.password1}}
+						</div>
+						<div class="input-group mb-2">
+							<div class="input-group-append">
+								<span class="input-group-text">Re-enter Password:</span>
+							</div>
+							{{form.password2}}
+						</div>
+
+
+
+				   		<div class="d-flex justify-content-center mt-3 login_container">
+				 			<input class="btn login_btn" type="submit" value="Register Account">
+				   		</div>
+
+					</form>
+				</div>
+
+				{{form.errors}}
+        </div>
+</div>
+</div>
+{% endblock main_content %}

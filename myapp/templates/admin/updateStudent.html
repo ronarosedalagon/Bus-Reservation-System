@@ -1,0 +1,97 @@
+{% extends 'myapp/Sidebar.html' %}
+{% block page_title %}
+    Admin
+{% endblock page_title %}
+{% block main_content %}
+<section class="content">
+<nav class="col-md-2 d-inline-block bg-dark sidebar">
+          <div class="sidebar-sticky" style="height: 671px;">
+            <ul class="nav flex-column nav-pills " style="margin: 8% 0 0 0;">
+                <h6 style="color: gray">Welcome, <span style="color:yellow;"> {{ user.last_name }}, {{ user.first_name }}</h6>
+              <li class="nav-item">
+                <a class="nav-link" href="/cecadmin">
+                <i class="fa fa-home" aria-hidden="true" style="margin-right: 10px;"></i>
+                   Dashboard
+                </a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href='/cecadmin/addbus'>
+                <i class="fa fa-bus" aria-hidden="true" style="margin-right: 10px;"></i>
+                    Add Bus
+                </a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="/cecadmin/managebus">
+                <i class="fa fa-folder-open" aria-hidden="true" style="margin-right: 3px;"></i>
+                  Manage Bus
+                </a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="/cecadmin/addschedule">
+                <i class="fa fa-calendar-check-o" aria-hidden="true" style="margin-right: 7px;"></i>
+                    Add Schedule
+                </a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="/cecadmin/manageschedule">
+                <i class="fa fa-calendar-check-o" aria-hidden="true" style="margin-right: 8px;"></i>
+                  Manage Schedule
+                </a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="/cecadmin/assigndriver">
+                <i class="fa fa-id-card-o" aria-hidden="true" style="margin-right: 5px;"></i>
+                  Assign Driver
+                </a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="/cecadmin/managedriver">
+                <i class="fa fa-pencil-square-o" aria-hidden="true" style="margin-right: 7px;"></i>
+                  Manage Driver
+                </a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="/cecadmin/addstudent">
+                <i class="fa fa-user" aria-hidden="true" style="margin-right: 11px;"></i>
+                  Add Student
+                </a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link active" href="/cecadmin/managestudent">
+                <i class="fa fa-folder-open" aria-hidden="true" style="margin-right: 3px;"></i>
+                  Manage Student
+                </a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="managereservation">
+                <i class="fa fa-file-text-o" aria-hidden="true" style="margin-right: 6px;"></i>
+                  Manage Reservation
+                </a>
+              </li>
+            </ul>
+          </div>
+        </nav>
+</section>
+<div class="container"  style="width:30%; display:float; margin: -41% 0 0 25%;">
+            <a href='/cecadmin/managestudent' style="margin:0 0 0 85%;"><input type="submit" value="Close" class="btn btn-Danger"></a>
+            <h5 style="margin:5% 0 -4% 0;"> Update Student</h5>
+                <form action="" method=POST>
+                    {% csrf_token %}
+
+                <div class="card-body">
+
+                </div>
+                    {{ form.as_p }}
+                    <input type="submit" value="Submit" class="btn btn-secondary">
+                    {% if messages %}
+                    <ul class="messages">
+                    {% for message in messages %}
+                            <li {% if message.tags %} class="{{ message.tags }}"{% endif %}>{{ message }}</li>
+                            {% endfor %}
+                    </ul>
+                    {% endif %}
+                </form>
+        </div>
+</div>
+</div>
+{% endblock main_content %}
